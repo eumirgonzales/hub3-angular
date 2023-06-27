@@ -1,0 +1,7 @@
+{
+  "name": "hub3-angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
