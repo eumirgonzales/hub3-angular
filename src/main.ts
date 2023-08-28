@@ -1,4 +1,4 @@
-import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
+import { ErrorHandler, enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -9,6 +9,7 @@ import { environment } from './environments/environment';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideFirebaseApp, initializeApp, FirebaseAppModule } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { RaygunErrorHandler } from './app/services/app.raygun.setup';
 // import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 if (environment.production) {
@@ -33,6 +34,10 @@ bootstrapApplication(AppComponent, {
     
     importProvidersFrom(provideFirebaseApp(() => initializeApp(firebaseConfig))),
     importProvidersFrom(provideAuth(() => getAuth())),
+    {
+      provide: ErrorHandler,
+      useClass: RaygunErrorHandler
+    }
 ],
 });
 

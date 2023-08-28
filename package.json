@@ -30,6 +30,7 @@
     "@capacitor/keyboard": "^5.0.6",
     "@capacitor/status-bar": "^5.0.6",
     "@ionic/angular": "^7.3.1",
+    "@types/raygun4js": "^2.13.8",
     "firebase": "^10.3.0",
     "ionicons": "^7.1.2",
     "raygun4js": "^2.27.0",
